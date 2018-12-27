@@ -34,9 +34,9 @@ router.post('/counter/dec', (req, res) => {
   }
 });
 
-router.delete('/counter/', (req, res) => {
+router.delete('/counter/:id', (req, res) => {
   console.log(req.body)
-  if(req.body.id){
+  if(req.params.id){
     let i = this.listOfCounters.map(function(e) { return e.id; }).indexOf(req.body.id);
     this.listOfCounters.splice(i, 1);
     res.status(200).send(this.listOfCounters)
